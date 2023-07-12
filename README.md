@@ -1,37 +1,50 @@
-# SilverStripe Starter
+# SilverStripe Starter (Based off DDEV, Vite)
 
-A basic Silverstripe website build to use a reference or guide for a better
-local development setup.
+This code repository contains an opinionated Silverstripe setup to use as a starter or reference for a better local development setup.
 
-## Features
+## Key Features
 
--   ddev for local development (https://akqa.atlassian.net/wiki/spaces/TECH/pages/125283794/Local+Development+101)
--   ssl enabled out of the box
--   yarn setup for typescript and react.
--   vite for building assets with live-reload on local.
--   storybook for components.
+-   [DDEV](https://ddev.readthedocs.io/en/stable/) powering the local development environment    
+-   [Yarn](https://yarnpkg.com/) setup for typescript and react.
+-   [Vite](https://vitejs.dev/) tooliing for building assets with live-reload on local.
+-   [Storybook](https://storybook.js.org/) for component based front-end development.
+
+## Installation
+
+If you've never used DDEV before, follow the installation instructions on their [website](https://ddev.readthedocs.io/en/stable/).
 
 ## How to use
 
-To use this as a starter for your project either copy the relevant files into
-your own project, or, if you have a new project you can use this as a starter
+To use this as a starter for your project either copy the relevant files into your own project repository or, if you have a new project you can use this as a starter by cloning it and removing the history. 
 
-Then search and replace any references of `sitename` in the folder to your
-project specific one. This will be in the following files at least:
+```
+git clone git@github.com:heyday/silverstripe-starter-vite-ddev.git silverstripe-project
+cd silverstripe-project
+rm -rf .git
+git init
+git remote add origin <your_project_repo>
+```
 
-    * package.json/composer.json
-    * .ddev/.env
-    * .ddev/config.yaml
 
-After updating the project with your references, time to do a system check
+Before using the code within this repository I recommend replacing any references of `sitename` in the folder to your
+project specific name (i.e awesome-website-name) so that they don't clash when you have multiple projects on the go.
 
-Start the docker:
+At the very least the following files will need to be updated with your correct project naming:
+
+- /package.json
+- /composer.json
+- /.ddev/.env
+- /.ddev/config.yaml
+
+After updating the project with your references, time to do a system check.
+
+Start the docker containers.
 
 ```
 ddev start
 ```
 
-Do a database build
+Do a Silverstripe database build
 
 ```
 ddev exec ./vendor/bin/sake dev/build
@@ -43,8 +56,7 @@ Setup yarn
 ddev yarn
 ```
 
-Check your project works at the ddev site URL and perform an initial commit to
-git.
+Check your project works at the ddev site URL and perform an initial commit to git.
 
 ```
 git init
@@ -61,9 +73,9 @@ Now start coding, you fantastic human being.
 ddev yarn dev
 ```
 
-This will run a local Vite dev server which supports hot reload for components.
+This will run a local Vite dev server which supports hot reload for components. All front-end dependancies and code is managed under `/app/client` and this repository includes a sample React component.
 
-The relevant plumbing for the backend server is in the
+The relevant plumbing for the backend server and Hot Module replacement is in the
 `app/templates/Includes/Requirements.ss` file.
 
 ## Default CMS login
@@ -73,9 +85,7 @@ Password: **admin**
 
 ## React components within Silverstripe
 
-In order to leverage the latest technologies you can build your front ends using
-React components. A `Banner` component has been setup as a demonstration but the
-steps to use them are like below.
+In order to leverage the latest technologies you can build your front-end using React components. A `Banner` component has been setup as a demonstration but the steps to use it is something like:
 
 1. Write your JSX component in `app/client/src/components/` with props etc
 2. Register your component in `app/client/src/state/Registry`.
@@ -94,11 +104,12 @@ public function getBannerProps(): string
 }
 ```
 
-I also highly recommend utilizing the partial caching within Silverstripe to
-make the component highly efficient (https://docs.silverstripe.org/en/5/developer_guides/performance/partial_caching/)
+I also highly recommend utilising the partial caching within Silverstripe to make the component highly efficient (https://docs.silverstripe.org/en/5/developer_guides/performance/partial_caching/)
 
 ```
 <% cached 'banner', $ID, $LastEdited %>
 <div data-component="Banner" data-props="{$BannerProps}"></div>
 <% end_cached %>
 ```
+	
+While this is used for React you could also replace the function with something similar for Web Components or Vue (or nothing at all if you prefer plain HTML).
