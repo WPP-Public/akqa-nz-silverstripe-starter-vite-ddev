@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./app/client/src/*"]
+    },
+    "baseUrl": "./",
+    "jsx": "react-jsx"
+  },
+  "include": ["./app/client/src/**/*"]
+}

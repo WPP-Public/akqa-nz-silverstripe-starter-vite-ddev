@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "isolatedModules": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./app/client/src/*"]
+    },
+    "baseUrl": "./",
+    "jsx": "react-jsx"
+  },
+  "exclude": ["./app/client/dist/**/*", "./app/client/build/**/*"],
+  "include": ["./app/client/src/*"]
+}

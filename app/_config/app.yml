@@ -1,0 +1,9 @@
+---
+Name: app
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: app
+SilverStripe\View\SSViewer:
+  themes:
+    - "$public"
+    - "$default"

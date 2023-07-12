@@ -1,0 +1,12 @@
+/silverstripe-cache/
+/.env
+/vendor/
+/_resources/
+/public/assets/
+node_modules
+/public/_resources/
+/.graphql-generated/
+/public/_graphql/
+/.ddev/.ddev-docker-compose-full.yaml
+/.ddev/.ddev-docker-compose-base.yaml
+yarn.lock

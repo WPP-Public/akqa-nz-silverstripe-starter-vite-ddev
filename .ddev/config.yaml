@@ -1,0 +1,28 @@
+name: sitename
+type: php
+docroot: public
+php_version: "8.2"
+webserver_type: nginx-fpm
+router_http_port: "80"
+router_https_port: "443"
+xdebug_enabled: false
+additional_fqdns: []
+database:
+    type: mariadb
+    version: "10.4"
+nfs_mount_enabled: false
+mutagen_enabled: false
+use_dns_when_possible: true
+composer_version: "2"
+web_environment: []
+upload_dir: "public"
+nodejs_version: "16"
+web_extra_exposed_ports:
+    - name: Vite Dev Server
+      container_port: 5173
+      http_port: 5173
+      https_port: 5174
+    - name: Storybook
+      container_port: 6006
+      http_port: 6006
+      https_port: 6007
