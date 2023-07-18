@@ -47,7 +47,7 @@ ddev start
 Do a Silverstripe database build
 
 ```
-ddev exec ./vendor/bin/sake dev/build
+ddev sake dev/build
 ```
 
 Setup yarn
