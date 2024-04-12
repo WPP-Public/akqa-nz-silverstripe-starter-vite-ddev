@@ -1,4 +1,4 @@
-<% if $IsDev %>
+<% if $IsDevHot %>
 <script type="module" nonce="{$Nonce}">
   import RefreshRuntime from '{$ViteBaseHref}/@react-refresh'
   RefreshRuntime.injectIntoGlobalHook(window)
