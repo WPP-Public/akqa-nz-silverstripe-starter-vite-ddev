@@ -10,6 +10,13 @@ namespace {
     {
         private static $allowed_actions = [];
 
+        /** @var boolean */
+        protected $hot_vite_server_enabled = true;
+
+        public function IsDevHot()
+        {
+            return Director::isDev() && $this->hot_vite_server_enabled;
+        }
 
         public function getViteBaseHref(): string
         {
@@ -29,32 +36,18 @@ namespace {
                 throw new Exception('client/dist/manifest.json does not exist. Please run `ddev yarn build` or `ddev yarn dev`');
             }
 
-            $manifest = json_decode(file_get_contents($manifestFile, true));
+            $manifest = json_decode(file_get_contents($manifestFile), true);
 
             if (!$manifest) {
                 throw new Exception('client/dist/manifest.json is not valid JSON. Please run `ddev yarn build` or `ddev yarn dev`');
             }
 
-            Requirements::css('app/dist/' . $manifest['app/client/src/index.css']);
-            Requirements::javascript('app/dist/' . $manifest['app/client/src/index.jsx']);
+            Requirements::css('app/client/dist/' . $manifest['app/client/src/index.css']['file']);
+            Requirements::javascript('app/client/dist/' . $manifest['app/client/src/index.js']['file']);
 
             if ($this->hasMethod('getAdditionalRequirements')) {
                 $this->getAdditionalRequirements($manifest);
             }
-        }
-
-
-        /**
-         * This is an example of how we pass 'props' to a react template within
-         * Silverstripe.
-         *
-         * @return string
-         */
-        public function getBannerProps(): string
-        {
-            return json_encode([
-                'title' => (string) $this->Title,
-            ]);
         }
     }
 }
