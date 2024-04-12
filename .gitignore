@@ -10,3 +10,4 @@ node_modules
 /.ddev/.ddev-docker-compose-full.yaml
 /.ddev/.ddev-docker-compose-base.yaml
 yarn.lock
+/app/client/dist/
