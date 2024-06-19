@@ -49,5 +49,13 @@ namespace {
                 $this->getAdditionalRequirements($manifest);
             }
         }
+
+
+        public function getBannerProps(): string
+        {
+            return json_encode([
+                'title' => (string) $this->Title,
+            ]);
+        }
     }
 }

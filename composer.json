@@ -1,6 +1,7 @@
 {
     "name": "akqa-nz/sitename",
     "type": "silverstripe-project",
+    "version": "1.0.0",
     "require": {
         "php": "^8.1",
         "silverstripe/recipe-cms": "^5.0",

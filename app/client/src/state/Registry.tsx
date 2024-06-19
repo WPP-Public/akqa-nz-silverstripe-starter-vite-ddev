@@ -23,7 +23,7 @@ import { createRoot } from "react-dom/client";
  * ```
  */
 const components = {
-  Banner: lazy(() => import("@/Components/Banner"))
+  Banner: lazy(() => import("@/components/Banner/Banner")),
 };
 
 const Registry = {
