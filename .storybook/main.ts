@@ -1,13 +1,13 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-const path = require("path");
+
 const config: StorybookConfig = {
-    framework: "@storybook/react-vite",
-    stories: ["../app/client/components/**/*.stories.@(js|jsx|ts|tsx)"],
-    addons: ["@storybook/addon-essentials", "@storybook/addon-links"],
-    docs: {
-        autodocs: "tag",
-    },
-    staticDirs: ["../app/client/img"],
+  framework: "@storybook/react-vite",
+  stories: ["../app/client/src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-links"],
+  staticDirs: ["../app/client/img"],
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+  },
 };
 
 export default config;

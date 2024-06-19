@@ -31,7 +31,8 @@ body {
   padding: 0;
   transition: 0.1s ease;
 
-  &.lights--on {
+  &.lights--on,
+  &.sb-show-main {
     opacity: 1;
   }
 }
@@ -41,5 +42,3 @@ body {
   margin: 0 auto;
   max-width: 54ch;
 }
-
-@import "./styles/components/banner.scss";

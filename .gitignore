@@ -9,3 +9,10 @@ node_modules
 /public/_graphql/
 yarn.lock
 /app/client/dist/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
